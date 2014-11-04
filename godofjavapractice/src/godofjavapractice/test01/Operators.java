@@ -73,5 +73,11 @@ public class Operators {
   
   
   
+  public void complement() {
+    boolean flag = true;
+    System.out.println(flag);
+    System.out.println(!flag);
+  }
+  
   
 }
