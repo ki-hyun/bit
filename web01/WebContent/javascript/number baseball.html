@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>number baseball</title>
+<script src='jquery-1.11.1.js'></script>
+</head>
+<body>
+	<button id='btnStart'>start</button>
+	<input id='input1' size='5' maxlength="1">
+	<input id='input2' size='5' maxlength="1">
+	<input id='input3' size='5' maxlength="1">
+	<button id='btnGo'>go</button>
+
+</body>
+
+<script>
+	var ar = new Array();
+	var temp;
+	var rnum;
+	var score;
+
+	$(function() {
+
+		for (var i = 0; i <= 9; i++) {
+			ar.push(i);
+		}
+
+		for (var i = 0; i < 9; i++) {
+			rnum = Math.floor(Math.random() * 10);
+			temp = ar[i];
+			ar[i] = ar[rnum];
+			ar[rnum] = temp;
+		}
+
+		return ar;
+
+		console.log(ar[1]);
+		console.log(ar[2]);
+		console.log(ar[3]);
+
+	});
+
+	/* var x1 =  Math.floor(Math.random()*10);
+
+	 var x2 =  Math.floor(Math.random()*10);
+
+	 $(function(){
+	 if (x1 == x2) {
+	 var x2 =  Math.floor(Math.random()*10);
+	 }
+	 });
+
+	 var x3 =  Math.floor(Math.random()*10); */
+
+	$(function() {
+		$('#btnStart').click(function() {
+
+			console.log(ar[1]);
+			console.log(ar[2]);
+			console.log(ar[3]);
+
+		});
+
+		var strikeCount = 0;
+		var ballCount = 0;
+		var outCount = 0;
+		var clickCount = 0;
+
+		$('#btnGo').click(
+				function() {
+
+					if ($('#input1').val() == ar[1]) {
+						console.log('Strike');
+						strikeCount += 1
+						console.log(strikeCount);
+
+					} else if ($('#input1').val() == ar[2]) {
+						console.log('ball');
+						ballCount += 1
+						console.log(ballCount);
+					} else if ($('#input1').val() == ar[3]) {
+						console.log('ball');
+						ballCount += 1
+						console.log(ballCount);
+					} else {
+						console.log('out');
+						outCount += 1
+					}
+
+					if ($('#input2').val() == ar[1]) {
+						console.log('ball');
+						ballCount += 1
+						console.log(strikeCount);
+
+					} else if ($('#input2').val() == ar[2]) {
+						console.log('strike');
+						strikeCount += 1
+						console.log(ballCount);
+					} else if ($('#input2').val() == ar[3]) {
+						console.log('ball');
+						ballCount += 1
+						console.log(ballCount);
+					} else {
+						console.log('out');
+						outCount += 1
+					}
+					if ($('#input3').val() == ar[1]) {
+						console.log('ball');
+						ballCount += 1
+						console.log(strikeCount);
+
+					} else if ($('#input3').val() == ar[2]) {
+						console.log('ball');
+						ballCount += 1
+						console.log(ballCount);
+					} else if ($('#input3').val() == ar[3]) {
+						console.log('strike');
+						strikeCount += 1
+						console.log(ballCount);
+					} else {
+						console.log('out');
+						outCount += 1
+					}
+					if (strikeCount == 3) {
+			            alert('YOU WIN');
+			          }
+					if (outCount == 3) {
+						score = 'Out' 
+					} else {
+						score = strikeCount + 'S' + ballCount + 'B'
+					}
+
+					console.log($('#input1').val());
+					console.log($('#input2').val());
+					console.log($('#input3').val());
+
+					clickCount += 1;
+
+					$('#scoreBoard' + clickCount).append(score);
+					$('#selectnumber' + clickCount).append(
+							$('#input1').val() + $('#input2').val()
+									+ $('#input3').val());
+
+					$('input').val('');
+
+					strikeCount = 0;
+					ballCount = 0;
+					outCount = 0;
+
+					if (clickCount == 9) {
+						alert('YOU LOSE');
+					}
+
+					if (strikeCount == 3) {
+						alert('YOU WIN');
+					}
+
+				});
+
+	});
+</script>
+
+<table border='2'>
+	<tr>
+		<th>회차</th>
+		<th>스코어</th>
+		<th>볼배합</th>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td id='scoreBoard1'></td>
+		<td id='selectnumber1'></td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td id='scoreBoard2'></td>
+		<td id='selectnumber2'></td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td id='scoreBoard3'></td>
+		<td id='selectnumber3'></td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td id='scoreBoard4'></td>
+		<td id='selectnumber4'></td>
+	</tr>
+	<tr>
+		<td>5</td>
+		<td id='scoreBoard5'></td>
+		<td id='selectnumber5'></td>
+	</tr>
+	<tr>
+		<td>6</td>
+		<td id='scoreBoard6'></td>
+		<td id='selectnumber6'></td>
+	</tr>
+	<tr>
+		<td>7</td>
+		<td id='scoreBoard7'></td>
+		<td id='selectnumber7'></td>
+	</tr>
+	<tr>
+		<td>8</td>
+		<td id='scoreBoard8'></td>
+		<td id='selectnumber8'></td>
+	</tr>
+	</tr>
+	<tr>
+		<td>9</td>
+		<td id='scoreBoard9'></td>
+		<td id='selectnumber9'></td>
+	</tr>
+
+
+
+</table>
+
+
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
