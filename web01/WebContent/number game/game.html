@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>number game</title>
+<script src='jquery-1.11.1.js'></script>
+</head>
+<body>
+
+	<!--숫자맞추기 게임, 숫자 야구, 핑, 테트리스 -->
+	<input type='text' id='number' name='no' value='1~30사이의 숫자를 입력하세요' size='30'>
+	<button id='btn1'>go</button>
+	<script>
+		var x = Math.floor(Math.random() * (30 - 1 + 1) + 1);
+		
+		
+		$(function() {
+			$('#number').focus(function() {
+				$(this).val('');
+			}).blur(function() {
+				if ($(this).val()	== '') {
+					$(this).val('1~30사이의 숫자를 입력하세요');
+					}
+			});
+		});
+
+		$(function() {
+			$('#btn1').click(function(event) {
+				
+				console.log($('#number').val());
+				console.log(x);
+				
+				if (x == $('#number').val()) {
+					alert('정답입니다.');
+				} else if (x > $('#number').val()) {
+					alert('입력한 숫자보다 더 큽니다');
+				} else if (x < $('#number').val()) {
+					alert('입력한 숫자보다 더 작습니다');
+				}
+				
+			});
+		});
+	</script>
+</body>
+</html>
